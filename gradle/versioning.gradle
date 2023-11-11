@@ -1,0 +1,16 @@
+apply plugin: 'pl.allegro.tech.build.axion-release'
+
+scmVersion {
+    localOnly.set(true)
+    useHighestVersion.set(true)
+
+    tag {
+        prefix.set("v")
+        versionSeparator.set("")
+    }
+
+    checks {
+        uncommittedChanges.set(false)
+        aheadOfRemote.set(false)
+    }
+}

@@ -1,16 +1,21 @@
 plugins {
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id 'pl.allegro.tech.build.axion-release' version '1.15.1'
 }
 
+apply from: "${rootProject.projectDir}/gradle/versioning.gradle"
+
 group = 'me.andrepost'
-version = '0.1.0'
+version = scmVersion.version
 
 repositories {
     mavenCentral()
     gradlePluginPortal()
     mavenLocal()
 }
+
+sourceCompatibility = JavaVersion.VERSION_11
 
 dependencies {
     implementation 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:4.4.1.3373'
